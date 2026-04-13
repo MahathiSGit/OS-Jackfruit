@@ -100,39 +100,40 @@ sudo dmesg -w
 ## 3. Demo Screenshots
 
 ### Screenshot 1 — Multi-Container Supervision
-Two containers (alpha and beta) running simultaneously under one supervisor process.
-The supervisor terminal shows both containers started with their PIDs.
+<img width="940" height="698" alt="image" src="https://github.com/user-attachments/assets/1e4dbe00-9f0e-4b8e-a666-5f3c4a2f8f35" />
+
+<img width="940" height="237" alt="image" src="https://github.com/user-attachments/assets/9eadc8b5-d43e-41e0-8369-34b484f6148e" />
+
 
 ### Screenshot 2 — Metadata Tracking
-Output of `engine ps` showing both containers with ID, PID, state, soft/hard memory
-limits, and start time.
+<img width="940" height="207" alt="image" src="https://github.com/user-attachments/assets/4cdbaf18-1bb6-4d59-af3c-ee95e3e7b3e7" />
+
 
 ### Screenshot 3 — Bounded-Buffer Logging
-Log file contents captured through the producer-consumer logging pipeline.
-Each line of cpu_hog output was captured via pipe, passed through the bounded
-buffer, and written to a per-container log file.
+<img width="940" height="364" alt="image" src="https://github.com/user-attachments/assets/9519faac-91b5-45b1-a62a-c9df8081e132" />
+
 
 ### Screenshot 4 — CLI and IPC
-A `stop` command issued from the CLI client reaches the supervisor over a UNIX
-domain socket. The supervisor responds with `ok` and the container exits cleanly.
+<img width="805" height="234" alt="image" src="https://github.com/user-attachments/assets/91b13547-5897-493d-af07-de89c4279ef2" />
+<img width="820" height="167" alt="image" src="https://github.com/user-attachments/assets/60bc82e0-7271-4aa0-90e7-a315f9ead095" />
+
 
 ### Screenshot 5 — Soft-Limit Warning
-dmesg output showing the kernel module detecting that container `memtest` exceeded
-its soft memory limit of 5MB and logging a warning.
+<img width="940" height="99" alt="image" src="https://github.com/user-attachments/assets/0806ca6b-0b90-4e9a-a699-7e1e84cced3b" />
+
 
 ### Screenshot 6 — Hard-Limit Enforcement
-dmesg output showing the kernel module killing container `memtest` after it exceeded
-the hard limit of 10MB. The `engine ps` output reflects the container state change.
+<img width="940" height="62" alt="image" src="https://github.com/user-attachments/assets/eb13a681-d560-40c0-9faf-805a25a48c36" />
+<img width="940" height="181" alt="image" src="https://github.com/user-attachments/assets/46dba8e1-ad99-4af5-aeba-7bfe91e37c5e" />
+
 
 ### Screenshot 7 — Scheduling Experiment
-Log output from two containers running cpu_hog with different nice values.
-`hipri` (nice -5) achieved a higher final accumulator than `lopri` (nice 10),
-demonstrating that the Linux CFS scheduler gave more CPU time to the
-higher-priority process.
+<img width="940" height="181" alt="image" src="https://github.com/user-attachments/assets/87f01b98-0079-4716-be8f-9b900cf3a528" />
+
 
 ### Screenshot 8 — Clean Teardown
-dmesg showing kernel module entries cleaned up and module unloaded.
-No zombie processes remain after supervisor shutdown.
+<img width="940" height="142" alt="image" src="https://github.com/user-attachments/assets/0f00189e-c866-43c4-b297-56d37df25f85" />
+
 
 ---
 
